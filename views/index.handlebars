@@ -1,0 +1,71 @@
+
+<div class="container">
+	<div class="jumbotron">
+		<img src="https://www.pngkit.com/png/detail/37-370620_cartoon-hamburger-png-cheese-burger-clip-art.png" width="250px" height="250px">
+		<h1>Let's Eat Burgers!!!</h1>
+	</div>
+	
+
+	<div class="row">
+
+	<div class="col-md-4 col-md-offset-1">
+	 <div class="panel-panel default">
+
+	 	<h1>Have a Burger</h1>
+
+	 	<ul class="list-group">
+
+	 		{{#each burgers}}
+	 		 {{#unless this.devoured}}
+
+	 		 <li class="list-group-item">
+	 		  <div class="input">
+	 		  	<p class="lead">{{this.burger_name}}</p>
+	 		  	<span class="input-btn">
+
+	 		  	
+	 		  			<input type="hidden" name="devoured" value="true">
+						   <input input type="hidden" class="burger_id" type="text" value={{this.id}}><br>
+	 		  			<button class="btn btn-default btn-md" id="btn-devour" type="submit">Devour it!</button>
+	 		  		</form>
+	 		  	</span>
+	 		  </div>
+	 		 </li>
+	 		 {{/unless}}
+	 		{{/each}}
+	 	</ul>
+
+	 </div>
+	</div>
+
+	
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<h1>Burgers that got Eaten!</h1>
+			<div class="panel panel-default">
+				<ul class="list-group">
+
+					{{#each burgers}}
+					 {{#if this.devoured}}
+
+					 <li class="list-group-item">
+					 	<p class="lead">{{this.burger_name}}</p>
+					 </li>
+
+					 {{/if}}
+					  {{/each}}
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+<form id="addburger">
+  <div class="form-group mr-2">
+  <input id="newburger" type="text" class="form-control" placeholder="Add Burger to Devour" autocomplete="off"></div>
+<button type="submit" class="btn btn-primary addbtn"><strong>Add</strong></button>
+
+ </form>
+
+ </div>
+</div>
