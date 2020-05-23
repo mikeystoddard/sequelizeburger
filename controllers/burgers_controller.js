@@ -15,9 +15,10 @@ return res.render("index", burOBJ);
 
 
 router.post("/api/burgers", function (req, res) {
-
-    db.burger.create({burger_name: req.body.name})
+    console.log("Inside Controller to create a burger", req.body);
+    db.burger.create({burger_name: req.body.data.burger_name, devoured: req.body.data.devoured})
     .then(function(newBurger) {
+        
         res.redirect("/");
     });
 })
